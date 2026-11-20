@@ -1,0 +1,52 @@
+operations:
+  view:
+    - type: web
+      impl: index.html
+actions: actions
+web: web-src
+runtimeManifest:
+  packages:
+    aem-video-brand-check:
+      license: Apache-2.0
+      actions:
+        evaluate-video:
+          function: actions/evaluate-video/index.js
+          web: 'yes'
+          runtime: nodejs:20
+          limits:
+            timeout: 180000
+            memorySize: 1024
+          inputs:
+            LOG_LEVEL: debug
+            GEMINI_API_KEY: $GEMINI_API_KEY
+            DEFAULT_AEM_HOST: $DEFAULT_AEM_HOST
+          annotations:
+            require-adobe-auth: false
+            final: false
+        get-brand-checks:
+          function: actions/get-brand-checks/index.js
+          web: 'yes'
+          runtime: nodejs:20
+          limits:
+            timeout: 60000
+            memorySize: 256
+          inputs:
+            LOG_LEVEL: debug
+          annotations:
+            require-adobe-auth: false
+            final: false
+        asset-event-handler:
+          function: actions/asset-event-handler/index.js
+          web: 'no'
+          runtime: nodejs:20
+          limits:
+            timeout: 180000
+            memorySize: 1024
+          inputs:
+            LOG_LEVEL: debug
+            GEMINI_API_KEY: $GEMINI_API_KEY
+            DEFAULT_AEM_HOST: $DEFAULT_AEM_HOST
+            AEM_SERVICE_TOKEN: $AEM_SERVICE_TOKEN
+          annotations:
+            require-adobe-auth: false
+            final: false

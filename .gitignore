@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.parcel-cache/
+.env
+.aio
+console.json
+*Production.json
+*Stage.json
+.aws.tmp.creds.json
+src/aem-assets-assetsview-1/web-src/src/config.json
+
+# Customer & tenant-exported Experience Context brand data and evaluation reports
+data/
+src/aem-assets-assetsview-1/actions/shared/*-compiled*.json
+src/aem-assets-assetsview-1/actions/shared/all-brands-*.json
+src/aem-assets-assetsview-1/actions/shared/cvs-*.json
+scripts/compile-cvs-questions.js

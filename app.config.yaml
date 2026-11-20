@@ -1,0 +1,8 @@
+extensions:
+  aem/assets/assetsview/1:
+    $include: src/aem-assets-assetsview-1/ext.config.yaml
+
+productDependencies:
+  - code: AEM
+    minVersion: '0.0.0'
+    maxVersion: '999.999.999'
